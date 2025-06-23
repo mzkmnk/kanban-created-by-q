@@ -24,3 +24,89 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Kanban専用スタイル */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ドラッグ&ドロップ視覚効果 */
+.drag-overlay {
+  transform: rotate(5deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* スクロールバーのスタイリング */
+.kanban-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.kanban-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.kanban-scroll::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.kanban-scroll::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* カードのホバーエフェクト */
+.kanban-card {
+  transition: all 0.2s ease-in-out;
+}
+
+.kanban-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* モーダルのアニメーション */
+.modal-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.modal-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 200ms, transform 200ms;
+}
+
+.modal-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal-exit-active {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 200ms, transform 200ms;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .kanban-board {
+    padding: 1rem;
+  }
+  
+  .kanban-column {
+    min-width: 280px;
+    width: 280px;
+  }
+}
+
+@media (max-width: 640px) {
+  .kanban-column {
+    min-width: 260px;
+    width: 260px;
+  }
+}
